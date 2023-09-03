@@ -1,6 +1,15 @@
-HelloWorld!
-Test
-Hi
 Dri
-restart program
-insert datadata
+
+
+
+Test
+Clear
+Open
+
+Why
+123
+kafkaTest
+Kafka apache
+Testing
+OpenCourse
+123
