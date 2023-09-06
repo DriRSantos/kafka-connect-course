@@ -15,16 +15,53 @@ services:
       - 9092:9092                 # Kafka Broker
     volumes:
       - ./connectors/kafka-connect-wikimedia-1.0-all.jar:/connectors/kafka-connect-wikimedia-1.0-all.jar
+      - ./connectors/confluentinc-kafka-connect-datagen-0.6.2:/connectors/confluentinc-kafka-connect-datagen-0.6.2
 
-  # we will use elasticsearch as one of our sinks.
+#  # we will use elasticsearch as one of our sinks.
+#  # This configuration allows you to start elasticsearch
+#  elasticsearch:
+#    image: itzg/elasticsearch:2.4.3
+#    environment:
+#      PLUGINS: appbaseio/dejavu
+#      OPTS: -Dindex.number_of_shards=1 -Dindex.number_of_replicas=0
+#    ports:
+#      - "9200:9200"
+
+  # elasticsearch as one of our sinks
   # This configuration allows you to start elasticsearch
   elasticsearch:
-    image: itzg/elasticsearch:2.4.3
+    image: elasticsearch:8.7.0
     environment:
-      PLUGINS: appbaseio/dejavu
-      OPTS: -Dindex.number_of_shards=1 -Dindex.number_of_replicas=0
+      discovery.type: single-node
+      xpack.security.enabled: false
+      xpack.security.http.ssl.enabled: false
+      http.port: 9200
+      http.cors.enabled: true
+      http.cors.allow-origin: http://localhost:1358,http://127.0.0.1:1358,http://127.0.0.1:9200,http://localhost:1358/query
+      http.cors.allow-headers: X-Requested-With, Content-Type, Content-Length, Authorization, Accept, User-Agent, X-Elastic-Client-Meta
+      http.cors.allow-methods: OPTIONS, HEAD, GET, POST, PUT, DELETE
+      http.cors.allow-credentials: true
+      bootstrap.memory_lock: true
+      ES_JAVA_OPTS: -Xms512m -Xmx512m
     ports:
-      - "9200:9200"
+      - 9200:9200
+      - 9300:9300
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+       - ./data:/usr/share/elasticsearch/data
+
+  # search engine
+  # elasticsearch browser
+  dejavu:
+    image: appbaseio/dejavu:3.6.0
+    container_name: dejavu
+    ports:
+      - 1358:1358
+    links:
+      - elasticsearch
 
   # we will use postgres as one of our sinks.
   # This configuration allows you to start postgres
