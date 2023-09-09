@@ -1,4 +1,4 @@
-version: '2'
+version: '3.8'
 
 services:
   # this is our kafka cluster.
@@ -16,6 +16,7 @@ services:
     volumes:
       - ./connectors/kafka-connect-wikimedia-1.0-all.jar:/connectors/kafka-connect-wikimedia-1.0-all.jar
       - ./connectors/confluentinc-kafka-connect-datagen-0.6.2:/connectors/confluentinc-kafka-connect-datagen-0.6.2
+      - ./connectors/kafka-connect-github-source:/connectors/kafka-connect-github-source/target
 
 #  # we will use elasticsearch as one of our sinks.
 #  # This configuration allows you to start elasticsearch
@@ -50,8 +51,8 @@ services:
       memlock:
         soft: -1
         hard: -1
-    volumes:
-       - ./data:/usr/share/elasticsearch/data
+#    volumes:
+#       - ./data:/usr/share/elasticsearch/data
 
   # search engine
   # elasticsearch browser
@@ -66,10 +67,12 @@ services:
   # we will use postgres as one of our sinks.
   # This configuration allows you to start postgres
   postgres:
-    image: postgres:9.5-alpine
+    image: postgres:15-alpine
     environment:
       POSTGRES_USER: postgres     # define credentials
       POSTGRES_PASSWORD: postgres # define credentials
       POSTGRES_DB: postgres       # define database
     ports:
       - 5432:5432                 # Postgres port
+#    volumes:
+#      - ./data:/usr/share/postgres/data
