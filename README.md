@@ -12,28 +12,28 @@ What was learned:
 ## Screenshots
 
 ### Creating data to topic demo-1-standalon
-<img src="" width="450" height="248">
+<img src="https://github.com/DriRSantos/kafka-connect-course/blob/main/images/3%20-%20creating-data-to-demo-standalone-topic.png?raw=true" width="450" height="248">
 
 ### Topic demo-1-standalone Landoop
-<img src="" width="450" height="248">
+<img src="https://github.com/DriRSantos/kafka-connect-course/blob/main/images/4%20-%20topic-demo-standalone-with-new-data.png?raw=true" width="450" height="248">
 
 ### File-stream-demo-2-distributed Connector running
-<img src="" width="450" height="248">
+<img src="https://github.com/DriRSantos/kafka-connect-course/blob/main/images/7-file-stream-demo-distributed-connector-kafka-running.png?raw=true" width="450" height="248">
 
 ### Creating data to demo-2-distributed mode
-<img src="" width="450" height="248">
+<img src="https://github.com/DriRSantos/kafka-connect-course/blob/main/images/8%20-%20send-data-demo-file-into-container-kafka-connect-cluster-distributed-mod.png?raw=true" width="450" height="248">
 
 ### Topic demo-2-distributed data Landoop
-<img src="" width="450" height="248">
+<img src="https://github.com/DriRSantos/kafka-connect-course/blob/main/images/9%20-%20data-schema-json-connector-distributed-mode.png?raw=true" width="450" height="248">
 
 ### Topic wikimedia.recentchange.connect data Landoop
-<img src="" width="450" height="248">
+<img src="https://github.com/DriRSantos/kafka-connect-course/blob/main/images/topic-wikimedia-recentchange-connect-lenses.jpg?raw=true" width="450" height="248">
 
 ### Elasticsearch-sink-wikimedia Landoop
-<img src="" width="450" height="248">
+<img src="https://github.com/DriRSantos/kafka-connect-course/blob/main/images/elasticsearch-sink-Connector-running-datagen-source-and-wikimedia-source.jpg?raw=true" width="450" height="248">
 
 ### DejaVu Elasticsearch wikimedia.recentchange.connect topic
-<img src="" width="450" height="248">
+<img src="https://github.com/DriRSantos/kafka-connect-course/blob/main/images/dejavu-elasticsearch-sink-wikimedia-source-data.jpg?raw=true" width="450" height="248">
 
 
 ##
